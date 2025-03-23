@@ -1,0 +1,8 @@
+package used-
+express 
+mongoose
+dotenv 
+cors 
+bcryptjs 
+jsonwebtoken 
+socket.io 

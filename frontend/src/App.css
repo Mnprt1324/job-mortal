@@ -1,0 +1,18 @@
+.active{
+  background-color:#0764fa;
+  padding:.5rem 1rem;
+  color:aliceblue;
+  border-radius: 3rem;
+  transition: all 0.3s ease-in-out;
+}
+li >a{
+    padding:.5rem 1rem; 
+    border-radius: 1.3rem;
+}
+*{
+    transition: all 0.3s ease-in-out;  
+}
+
+input [type="checkbox"]{
+border-radius: 50px;
+}

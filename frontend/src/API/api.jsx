@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:7000",
+  baseURL:import.meta.env.VITE_BASE_URL,
 });
 // "https://job-mortal-1.onrender.com"
 export const registerUserApiCall = (data) => {

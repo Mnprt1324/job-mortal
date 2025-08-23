@@ -3,7 +3,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL: "http://localhost:7000",
 });
-
+// "https://job-mortal-1.onrender.com"
 export const registerUserApiCall = (data) => {
   return api.post("/users/register", data);
 };
@@ -23,6 +23,10 @@ export const forgetPasswordApiCall = (email) => {
     },
   });
 };
+
+export const userResumeUploadApi=(resume)=>{
+  return api.post("users/profile/resume",resume,{withCredentials:true})
+}
 
 export const verifyOtpApiCall = (data) => {
   return api.post("/users/password/verify", data);

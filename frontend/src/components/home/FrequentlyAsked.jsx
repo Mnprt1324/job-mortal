@@ -1,5 +1,5 @@
 import { Accordian } from "./Accordian";
-
+import { FiMessageCircle } from "react-icons/fi";
 export const FrequentlyAsked = () => {
   const faqs = {
     recruiters: [
@@ -51,14 +51,16 @@ export const FrequentlyAsked = () => {
   return (
     <section className="py-12">
       {/* Heading */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl text-gray-900 font-semibold md:text-5xl">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-gray-600 text-lg mt-2">
-          Find answers to common questions from recruiters and job seekers.
-        </p>
-      </div>
+       <div className="text-center mb-16">
+          <div className="inline-flex items-center justify-center p-2 bg-blue-100 rounded-full mb-4">
+            <FiMessageCircle className="w-6 h-6 text-blue-600" />
+
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            Frequently Asked
+            <span className="block md:inline text-blue-600"> Questions</span>
+          </h1>
+          </div>
 
       {/* FAQ Sections */}
       <div className="grid grid-cols-1 gap-10 max-w-6xl md:grid-cols-2 mx-auto px-5">

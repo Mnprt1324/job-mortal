@@ -11,6 +11,7 @@ router.post("/password/forget",userControllers.forgetUserPassword);
 router.post("/password/verify",userControllers.verifyPass);
 router.post("/password/update",userControllers.updateUserPass)
 router.post("/profile/update",upload.single("profileImage"),authenticate,userControllers.updateUserProfile);
+router.post("/profile/resume",upload.single("resume"),authenticate,userControllers.resumeUpload);
 //extra
 // router.get("/auth",userControllers.auth);
 

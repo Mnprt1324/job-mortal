@@ -22,9 +22,9 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     profile: {
-        profileImg:{
-            type:String,//url
-            default:"",
+        profileImg: {
+            type: String,//url
+            default: "",
         },
         bio: {
             type: String,
@@ -40,18 +40,15 @@ const userSchema = new mongoose.Schema({
                 years: String
             }
         ],
-        education: [{
-            institution: String,
-            degree: String,
-            year: Number,
-        }],
+        website: { type: String },
+        github: { type: String },
         resume: { type: String },
         appliedJobs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Job" }],
     },
-    otp:{
-        otp:{
-            type:String,
-            default:null
+    otp: {
+        otp: {
+            type: String,
+            default: null
         },
         otpExpiry: {
             type: Date,
@@ -63,7 +60,7 @@ const userSchema = new mongoose.Schema({
 
 //method to create token
 userSchema.methods.generateAuthToken = function () {
-    const token = jwt.sign({ _id: this.id,role:this.role }, process.env.JWT_SECRET, { expiresIn: '24h' });
+    const token = jwt.sign({ _id: this.id, role: this.role }, process.env.JWT_SECRET, { expiresIn: '24h' });
     return token;
 }
 

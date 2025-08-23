@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 import { setSearchedQuery } from "../redux/jobSlice";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { JobCardSkeleton } from "../components/home/JobCardSkeleton";
+import { Briefcase } from "lucide-react";
+import { FeatureJob } from "../components/home/FeatureJob";
 
 export const FindJob = () => {
   const dispatch = useDispatch();
@@ -37,7 +40,7 @@ export const FindJob = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-2 border rounded"
+              className="px-4 py-2  bg-blue-100 border-none rounded focus:outline-blue-500"
             >
               <option value="new">Newest First</option>
               <option value="old">Oldest First</option>
@@ -54,11 +57,22 @@ export const FindJob = () => {
             className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 px-4"
           >
             {loading ? (
-              <p className="col-span-3 text-center text-xl text-gray-500 animate-pulse">
-                Loading jobs...
-              </p>
+             Array.from({ length: 8 }).map((_, index) => (
+              <JobCardSkeleton key={index} />
+            ))
             ) : error ? (
-              <p className="col-span-3 text-center text-xl text-red-500">{"No jobs Found"}</p>
+             <div className="col-span-full text-center py-16">
+              <div className="max-w-md mx-auto">
+                <Briefcase className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No jobs available</h3>
+                <p className="text-gray-600 mb-6">
+                  We couldn't find any  job listings at the moment. Check back later for fresh opportunities.
+                </p>
+                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                  Browse All Jobs
+                </button>
+              </div>
+            </div>
             ) : allJobs.length > 0 ? (
               allJobs.map((job) => (
                 <motion.div
@@ -114,6 +128,7 @@ export const FindJob = () => {
           )}
         </div>
       </div>
+      <FeatureJob/>
     </section>
   );
 };

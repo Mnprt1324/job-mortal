@@ -10,6 +10,7 @@ const useGetAllAppliedJobs = () => {
     const fetchAllAppliedJobs  = async () => {
       try {
         const response = await getAplliedJobsByUser() ;
+        console.log("aaaa",response);
         if (response.data.success) {
           dispatch(setAppliedJob(response.data.application));
         }

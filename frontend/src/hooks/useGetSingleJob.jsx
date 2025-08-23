@@ -9,6 +9,7 @@ const useGetSingleJob  = (id) => {
       const fetchAppliedJobs  = async () => {
         try {
           const response = await getSingleJobApiCall(id) ;
+          console.log("ads",response);
           if (response.data.success) {
             dispatch(setSingleJob(response.data.job));
           }

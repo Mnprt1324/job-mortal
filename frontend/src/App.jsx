@@ -37,7 +37,7 @@ export const App = () => {
       children: [
         {
           path: "",
-          element: <Home />, // ✅ Kept your path structure
+          element: <Home />,
           children: [
             { path: "", element: <PopularJobs /> },
             { path: "jobs/new", element: <NewJobs /> },

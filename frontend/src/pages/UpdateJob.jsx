@@ -67,8 +67,8 @@ export const UpdateJob = () => {
   };
 
   return (
-    <section className="h-screen flex justify-center">
-      <div className="w-[50%] bg-white p-6 mt-4">
+    <section className=" h-screen flex justify-center">
+      <div className="bg-white p-6 mt-4">
         <button
           onClick={() => navigate(-1)}
           className="text-blue-600 hover:underline mb-4"

@@ -10,8 +10,8 @@ export const FeatureJob = () => {
     navigate("/findJob");
   };
 
-  const handleJobClick = (jobTitle) => {
-    navigate(`/findJob?keyword=${encodeURIComponent(jobTitle)}`);
+  const handleJobClick = (id) => {
+    navigate(`/job/apply/${id}`);
   };
 
   useGetAllJobs({keyword:""});
@@ -32,12 +32,12 @@ export const FeatureJob = () => {
   return (
     <div className="flex flex-col items-center bg-slate-50 gap-8 py-6 md:py-16">
       <div className="grid place-items-center mt-2">
-        <h4 className="font-medium text-3xl">Featured Jobs</h4>
+        <h4 className="font-bold text-5xl text-blue-500 "> <span className="text-black">Featured</span>  Jobs</h4>
         <p>Know your worth and find the job that qualifies your life</p>
       </div>
       <div className="w-[95%] grid grid-cols-1 md:grid-cols-2 gap-4">
         {uniqueJobs.map((curr) => (
-          <div key={curr._id} onClick={() => handleJobClick(curr.title)} className="cursor-pointer">
+          <div key={curr._id} onClick={() => handleJobClick(curr._id)} className="cursor-pointer">
             <JobCard2 job={curr} />
           </div>
         ))}

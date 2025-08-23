@@ -17,6 +17,7 @@ const useSortJobs = (sortby,limit) => {
     };
     fetchSingleCompany ();
   },[]);
+  
 };
 
 export default useSortJobs;

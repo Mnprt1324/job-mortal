@@ -67,7 +67,6 @@ const query = keyword
 module.exports.getJobById = async (req, res) => {
   try {
     const jobId = req.params.id;
-    console.log(jobId)
     const job = await jobModel.findById(jobId).populate("applicants");
     if (!job) return res.status(404).json({ message: "Jobs not found." })
     return res.status(200).json({ job, message: "job fecth successfully", success: true });

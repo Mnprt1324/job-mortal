@@ -38,15 +38,19 @@ module.exports.loginUser = async (req, res, next) => {
 
     if (user.role === role) {
         const token = user.generateAuthToken();
-        res.cookie('token', token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,    
+            sameSite: "none",  
+            maxAge: 7 * 24 * 60 * 60 * 1000 
+        });
+
         return res.status(200).json({ token, user, success: true, message: ":Login successful " });
     }
     else {
         return res.status(400).json({ message: 'user cannot exist with current role', success: false });
 
     }
-    // console.log("login user:", user)
-
 }
 
 
